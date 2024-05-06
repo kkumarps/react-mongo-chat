@@ -1,0 +1,50 @@
+.login {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 100px;
+
+  .item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border-bottom: none;
+    cursor: auto;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+
+      input {
+        padding: 10px;
+        border: none;
+        outline: none;
+        background-color: rgba(255, 255, 255, 0.5);
+        color: #000000;
+        border-radius: 5px;
+      }
+
+      button {
+        width: 100%;
+        padding: 15px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .separator {
+    height: 80%;
+    width: 2px;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
