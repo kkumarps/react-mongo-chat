@@ -123,6 +123,10 @@
     .icons {
       display: flex;
       gap: 20px;
+
+      .bottom-icon:hover {
+        transform: scale(1.2);
+      }
     }
 
     img {
@@ -151,6 +155,10 @@
         bottom: 50px;
         left: 0;
       }
+
+      &:hover {
+        transform: scale(1.2);
+      }
     }
 
     .send-button {
@@ -162,6 +170,10 @@
       cursor: pointer;
       font-size: small;
       font-weight: 700;
+
+      &:hover {
+        transform: scale(1.2);
+      }
     }
   }
 }

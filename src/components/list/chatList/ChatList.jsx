@@ -1,14 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import AddUser from "./addUser/AddUser";
 import "./chatList.css";
 
+import useFetch from "../../../lib/hooks/useFetch";
+
 function ChatList() {
   const [addMode, setAddMode] = useState(false);
+  const [contacts, setContacts] = useState([]);
 
   const changeAddMode = () => {
     setAddMode((prev) => !prev);
   };
+
+  useEffect(() => {
+    const fetchContactsList = () => {
+      useFetch("https://fakestoreapi.com/users", { method: "GET" }).then(
+        (data) => {
+          setContacts(data);
+        }
+      );
+    };
+
+    return () => {
+      fetchContactsList();
+    };
+  }, []);
 
   return (
     <>
@@ -27,49 +44,17 @@ function ChatList() {
             />
           </div>
         </div>
-        <div className="item">
-          <img src="/assets/avatar.png" alt="" />
-          <div className="texts">
-            <span>Jack Doe</span>
-            <p>Hello</p>
+        {contacts.map((contact) => (
+          <div className="item" key={contact.id}>
+            <img src="/assets/avatar.png" alt="" />
+            <div className="texts">
+              <span>{contact.username}</span>
+              <p>Hello</p>
+            </div>
           </div>
-        </div>
-        <div className="item">
-          <img src="/assets/avatar.png" alt="" />
-          <div className="texts">
-            <span>Jack Doe</span>
-            <p>Hello</p>
-          </div>
-        </div>
-        <div className="item">
-          <img src="/assets/avatar.png" alt="" />
-          <div className="texts">
-            <span>Jack Doe</span>
-            <p>Hello</p>
-          </div>
-        </div>
-        <div className="item">
-          <img src="/assets/avatar.png" alt="" />
-          <div className="texts">
-            <span>Jack Doe</span>
-            <p>Hello</p>
-          </div>
-        </div>
-        <div className="item">
-          <img src="/assets/avatar.png" alt="" />
-          <div className="texts">
-            <span>Jack Doe</span>
-            <p>Hello</p>
-          </div>
-        </div>
-        <div className="item">
-          <img src="/assets/avatar.png" alt="" />
-          <div className="texts">
-            <span>Jack Doe</span>
-            <p>Hello</p>
-          </div>
-        </div>
-        <AddUser />
+        ))}
+
+        {addMode && <AddUser />}
       </div>
     </>
   );

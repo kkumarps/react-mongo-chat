@@ -90,9 +90,9 @@ function Chat() {
         </div>
         <div className="bottom">
           <div className="icons">
-            <img src="/assets/img.png" alt="" />
-            <img src="/assets/camera.png" alt="" />
-            <img src="/assets/mic.png" alt="" />
+            <img src="/assets/img.png" alt="" className="bottom-icon" />
+            <img src="/assets/camera.png" alt="" className="bottom-icon" />
+            <img src="/assets/mic.png" alt="" className="bottom-icon" />
           </div>
           <input
             type="text"
